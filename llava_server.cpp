@@ -123,10 +123,10 @@ static void perform_inference(
 
     // GG: are we sure that the should be a trailing whitespace at the end of this string?
     std::string prompt = request.system_prompt + "\nUSER: ";
-    eval_string(ctx_llama, prompt.c_str(), params.n_batch, &n_past);
+    eval_string(ctx_llama, prompt.c_str(), params.n_batch, &n_past, false);
     eval_image_embd(ctx_llama, image_embd, n_img_pos, params.n_batch, &n_past);
-    eval_string(ctx_llama, request.user_prompt.c_str(), params.n_batch, &n_past);
-    eval_string(ctx_llama, "\nASSISTANT:",        params.n_batch, &n_past);
+    eval_string(ctx_llama, request.user_prompt.c_str(), params.n_batch, &n_past, false);
+    eval_string(ctx_llama, "\nASSISTANT:", params.n_batch, &n_past, false);
 
     // generate the response
 

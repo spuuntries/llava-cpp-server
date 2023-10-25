@@ -116,7 +116,7 @@ static void perform_inference(
 
     int n_past = 0;
 
-    const int max_tgt_len = params.n_predict < 0 ? 256 : params.n_predict;
+    const int max_tgt_len = params.n_predict < 0 ? 64 : params.n_predict;
 
     // Clear state
     llama_kv_cache_tokens_rm(ctx_llama, -1, -1);
